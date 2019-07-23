@@ -1,6 +1,5 @@
 'use strict';
 
-const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -9,9 +8,10 @@ const hbs = require('hbs');
 const mongoose = require('mongoose');
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const celebritiesRouter = require('./routes/celebrities');
+const moviesRouter = require('./routes/movies');
 
-mongoose.connect('mongodb://localhost/database-name', {
+mongoose.connect('mongodb://localhost/celebrities', {
   keepAlive: true,
   useNewUrlParser: true,
   reconnectTries: Number.MAX_VALUE
@@ -31,7 +31,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 hbs.registerPartials(path.join(__dirname, '/views/partials'));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/celebrities', celebritiesRouter);
+app.use('/movies', moviesRouter);
 
 // -- 404 and error handler
 

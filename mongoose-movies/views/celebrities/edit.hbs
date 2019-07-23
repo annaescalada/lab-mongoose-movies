@@ -1,0 +1,19 @@
+<h2>Eddit celebrity</h2>
+<form action="/celebrities/{{_id}}" method="POST">
+  <label for="name">Name</label>
+  <input type="text" name="name" id="name" value="{{name}}" required>
+  <label for="occupation">Occupation</label>
+  
+  <select name="occupation" id="ocupation">
+    <option value="{{occupation}}" selected>{{occupation}}</option>
+    <option value="actor">Actor</option>
+    <option value="singer">Singer</option>
+    <option value="comedian">Comedian</option>
+    <option value="unknown">Unknown</option>
+  </select>
+
+
+  <label for="catchPhrase">Catch Phrase</label>
+  <input type="text" name="catchPhrase" id="catchPhrase" value="{{catchPhrase}}" required>
+  <button type="submit">Edit celebrity</button>
+</form>
